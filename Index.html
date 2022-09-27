@@ -1,0 +1,29 @@
+<html>
+ <head>
+<!—sisipkan kode pemuatan disini -->
+    <link rel="stylesheet" href="leaflet/leaflet.css"/>
+    <script src="leaflet/leaflet.js"></script>
+        <link rel="stylesheet" href="leaflet/leaflet.groupedlayercontrol.css"/> 
+    <script src="leaflet/leaflet.groupedlayercontrol.js"></script>
+ </head>
+    <body>
+<!-- peta akan ditampilkan disini -->
+        
+        <div style="height:500px" id="mapid"></div>
+    </body>
+    
+
+    <script>
+    var mymap = L.map('mapid').setView([-7.569437, 110.825272], 
+     13);
+    var GoogleMaps = new 
+    L.TileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', { 
+    opacity: 1.0, attribution: 'Ketrampilan Berkehidupan dan WEB-SIG UMS | Gayuh Laksono'
+        }).addTo(mymap);
+        var GoogleSatelliteHybrid = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', { 
+                maxZoom: 22, attribution: 'Ketrampilan Berkehidupan dan WEBSIG UMS' });
+    var baseLayers = {'Google Satellite Hybrid': GoogleSatelliteHybrid,'Google Maps': GoogleMaps,}; 
+        L.control.groupedLayers(baseLayers).addTo(mymap); 
+   </script>
+        
+</html>
